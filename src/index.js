@@ -2,18 +2,13 @@
 const express = require('express');
 const cors = require('cors');
 const firebaseAdmin = require('firebase-admin');
-
-const firebaseConfig = {
-  apiKey: "AIzaSyCYWlBaZAM0qeE0uon8xCK70aYxer_uvaQ",
-  authDomain: "todolist-c6330.firebaseapp.com",
-  projectId: "todolist-c6330",
-  storageBucket: "todolist-c6330.appspot.com",
-  messagingSenderId: "329089233545",
-  appId: "1:329089233545:web:f95708cb7814496f810c58"
-};
+const firebaseConfig = require('../firebase_key.json');
 
 // Initialize Firebase
-firebaseAdmin.initializeApp(firebaseConfig);
+firebaseAdmin.initializeApp({
+  credential: firebaseAdmin.credential.cert(firebaseConfig),
+  projectId: "todolist-c6330"
+});
 
 const app = express();
 

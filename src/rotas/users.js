@@ -3,6 +3,8 @@ const path = require('path');
 
 const filePath = path.resolve(__dirname, '../../uploads/users.json');
 
+const userController = require('../controllers/users/users');
+
 
 const getUserData = () => {
 
@@ -45,6 +47,8 @@ const init = (expressInstance, basePath) => {
     const filteredUsers = filterUsers(searchTerm);
     res.json(filteredUsers);
   });
+
+  expressInstance.post(`${basePath}api/caduser`, userController.create);
 };
 
 
