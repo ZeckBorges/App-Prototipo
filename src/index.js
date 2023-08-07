@@ -20,7 +20,7 @@ router.init(app, '/');
 
 app.get('/', (req, res) => {
     res.send("Meu App");
-})
+});
 
 app.listen(5000, () => {
   console.log('API server is running on http://localhost:5000');
