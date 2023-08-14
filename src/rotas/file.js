@@ -13,7 +13,7 @@ const storage = multer.diskStorage({
 })
 
 
-const upload = multer({ storage }); // Define o diretório de dest
+const upload = multer({ storage });
 
 const init = (expressInstance, basePath) => {
     expressInstance.post(`${basePath}api/files`, upload.single('file'), (req, res) => {
