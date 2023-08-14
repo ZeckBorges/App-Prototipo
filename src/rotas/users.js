@@ -42,6 +42,7 @@ const filterUsers = (searchTerm) => {
 };
 
 const init = (expressInstance, basePath) => {
+
   expressInstance.get(`${basePath}api/users`, (req, res) => {
     const searchTerm = req.query.search || '';
     const filteredUsers = filterUsers(searchTerm);
@@ -49,6 +50,8 @@ const init = (expressInstance, basePath) => {
   });
 
   expressInstance.post(`${basePath}api/caduser`, userController.create);
+
+  expressInstance.post(`${basePath}api/perfil`, userController.login);
 };
 
 

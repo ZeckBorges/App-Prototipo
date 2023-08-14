@@ -19,7 +19,7 @@ const router = require("./rotas");
 router.init(app, '/');
 
 app.get('/', (req, res) => {
-    res.send("App Rede Social");
+    res.send();
 });
 
 app.listen(5000, () => {
