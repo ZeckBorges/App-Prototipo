@@ -41,6 +41,7 @@ const login = async (req, res) => {
     // Recuperando informações adicionais do usuário do Firestore
     const userDoc = await db.collection('users').doc(id).get();
     const user = userDoc.data();
+    console.log('user',user)
 
     res.status(200).json({ message: 'Login bem-sucedido!', user });
   } catch (error) {

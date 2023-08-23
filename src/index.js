@@ -12,7 +12,13 @@ firebaseAdmin.initializeApp({
 
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: ['http://localhost:19006', 'exp://192.168.3.34:19000'],
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 const router = require("./rotas");
